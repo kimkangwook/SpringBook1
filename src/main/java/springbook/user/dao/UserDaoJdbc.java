@@ -10,16 +10,25 @@ import java.util.List;
 
 public class UserDaoJdbc implements UserDao{
 
-    private RowMapper<User> userMapper = new RowMapper<User>() {
-        @Override
-        public User mapRow(ResultSet rs, int i) throws SQLException {
+    private RowMapper<User> userMapper =
+//            new RowMapper<User>() {
+//                @Override
+//                public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+//                    User user = new User();
+//                    user.setId(rs.getString("id"));
+//                    user.setPassword(rs.getString("password"));
+//                    user.setName(rs.getString("name"));
+//                    return user;
+//                }
+//            };
+
+        (rs,  i)->{
             User user = new User();
             user.setId(rs.getString("id"));
             user.setPassword(rs.getString("password"));
             user.setName(rs.getString("name"));
-            return user;
-        }
-    };
+
+            return user;}    ;
 
 
     private JdbcTemplate jdbcTemplate;

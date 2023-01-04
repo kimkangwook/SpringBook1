@@ -28,7 +28,7 @@ public class ProxyTest {
 
     @Test
     public void makeProxyClass() {
-        Hello proxiedHello = (Hello)Proxy.newProxyInstance(getClass().getClassLoader(),
+        Hello proxiedHello = (Hello) Proxy.newProxyInstance(getClass().getClassLoader(),
                 new Class[]{Hello.class}, new UppercaseHandler(new HelloTarget()));
 
         assertThat(proxiedHello.sayHello("Toby"), is("HELLO TOBY"));

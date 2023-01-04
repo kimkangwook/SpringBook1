@@ -19,8 +19,14 @@ public class FactoryBeanTest {
     @Test
     public void getMessageFromFactoryBean() {
         Object message = context.getBean("message");
+        Object message2 = context.getBean("message");
+        Object message3 = context.getBean("message");
         assertThat(message, is(Message.class));
         assertThat(((Message) message).getText(), is("Factory Bean"));
+        System.out.println(message);
+        System.out.println(message2);
+        System.out.println(message3);
+
     }
 
     @Test
